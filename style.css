@@ -1,0 +1,485 @@
+/*
+Theme Name: Lemon Media Theme
+Author: Tahseen
+Description: Custom theme for Lemon Media
+Version: 1.0
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital@1&family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap');
+
+/* =========================================
+   BASIC RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffde00; 
+    color: #000000;
+    font-family: 'Anton', sans-serif;
+    overflow-x: hidden; 
+    overflow-y: auto;
+    width: 100%;
+}
+
+/* =========================================
+   CUSTOM LOADER ANIMATION
+========================================= */
+#custom-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1c252e;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.loader-logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    animation: pulse-logo 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-logo {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+.loader-bar-wrap {
+    width: 200px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.loader-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #ffde00;
+    animation: load-bar-anim 1.5s ease forwards;
+}
+
+@keyframes load-bar-anim {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* =========================================
+   HEADER DESIGN
+========================================= */
+.site-header {
+    width: 100%;
+    background-color: #ffde00;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    z-index: 1000;
+    height: 90px; 
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    max-width: 1500px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.main-logo {
+    height: 60px; 
+    width: auto;
+    object-fit: contain;
+}
+
+.main-navigation {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #df0000;
+}
+
+.caret {
+    font-size: 10px;
+}
+
+.btn-talk {
+    background-color: #1c252e;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid #1c252e;
+}
+
+.btn-talk:hover {
+    background-color: #ffde00;
+    color: #1c252e;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+.hero-brutalist {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 90px); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    padding: 0 60px;
+    padding-top: 20px;
+}
+
+.main-title {
+    font-size: 12vw; 
+    line-height: 0.85;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.middle-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.bracket {
+    font-size: 12vw;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.editorial-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.2vw;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0px;
+    line-height: 1.1;
+    padding: 0 10px;
+    position: relative;
+    top: -10px;
+}
+
+.editorial-text .arrow {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.editorial-text .star {
+    font-size: 1.8vw;
+    vertical-align: middle;
+}
+
+.side-text {
+    position: absolute;
+    right: 8vw;
+    top: 55%;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.bottom-arrow {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.bottom-arrow:hover {
+    transform: translateY(10px);
+}
+
+.corner-text {
+    position: absolute;
+    bottom: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.corner-text.bottom-left {
+    left: 60px;
+}
+
+.corner-text.bottom-right {
+    right: 160px;
+}
+
+/* =========================================
+   INTERACTIVE SECTION
+========================================= */
+.interactive-section {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 80px;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+.interactive-text {
+    width: 40%;
+    z-index: 10;
+}
+
+.interactive-text h2 {
+    font-size: 5vw;
+    line-height: 1;
+    font-weight: 400;
+    color: #111;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -2px;
+}
+
+.interactive-text .italic-serif {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.interactive-text p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    max-width: 400px;
+    letter-spacing: 0.5px;
+}
+
+.interactive-graphic {
+    position: relative;
+    width: 60%;
+    height: 600px;
+}
+
+.connecting-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.circles-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.circle-group {
+    position: absolute;
+}
+
+/* ==== POSITIONS ==== */
+.pos-impression {
+    bottom: 10%;
+    right: 5%;
+}
+
+.pos-reach {
+    top: 40%;
+    left: 45%;
+}
+
+.pos-revenue {
+    top: 15%;
+    right: 25%;
+}
+
+/* ==== CIRCLE BASE STYLES ==== */
+.circle-btn {
+    background-color: #df0000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(223, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.circle-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 50px rgba(223, 0, 0, 0.4);
+}
+
+/* ==== CIRCLE SIZES ==== */
+.circle-large {
+    width: 280px;
+    height: 280px;
+}
+
+.circle-medium {
+    width: 120px;
+    height: 120px;
+}
+
+.circle-small {
+    width: 70px;
+    height: 70px;
+}
+
+/* Plus Icon */
+.plus-icon {
+    font-size: 24px;
+    font-weight: 300;
+    color: #fff;
+}
+
+.circle-small .plus-icon {
+    font-size: 18px;
+}
+
+/* Content inside the Large Circle */
+.circle-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.small-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.big-label {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 42px;
+    line-height: 1;
+}
+
+/* Chota Dot */
+.small-dot {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    width: 15px;
+    height: 15px;
+    background-color: #df0000;
+    border-radius: 50%;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 1024px) {
+    .nav-menu { gap: 15px; }
+    .btn-talk { padding: 8px 16px; font-size: 12px; }
+    .main-logo { height: 45px; }
+    
+    .interactive-section {
+        flex-direction: column;
+        padding: 60px 20px;
+        height: auto;
+    }
+    .interactive-text { width: 100%; margin-bottom: 50px; }
+    .interactive-text h2 { font-size: 40px; }
+    .interactive-graphic { width: 100%; height: 400px; }
+    
+    .circle-large { width: 180px; height: 180px; }
+    .big-label { font-size: 28px; }
+    .circle-medium { width: 80px; height: 80px; }
+    .circle-small { width: 50px; height: 50px; }
+}
+
+@media (max-width: 768px) {
+    .site-header { height: auto; padding: 10px 0; }
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .main-navigation { width: 100%; }
+    
+    .hero-brutalist { padding: 20px; height: auto; min-height: calc(100vh - 150px); }
+    .main-title { font-size: 15vw; }
+    .editorial-text { font-size: 3.5vw; }
+    .bracket { font-size: 15vw; }
+    .side-text { display: none; }
+    .corner-text.bottom-left, .bottom-arrow, .corner-text.bottom-right { display: none; }
+}
